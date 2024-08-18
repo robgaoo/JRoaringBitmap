@@ -1,17 +1,8 @@
-```
-// 在bitmapContainer.go中iaddReturnMinimized方法中，
-如果bitmapContainer满了，就返回一个runContainer16Range，这个方法的实现如下：
-func (bc *bitmapContainer) iaddReturnMinimized(i uint16) container {
-bc.iadd(i)
-if bc.isFull() {
-return newRunContainer16Range(0, MaxUint16)
-}
-return bc
-}
-所以还是需要能够支持 serialCookie的，否则会出现错误,
-现在第一个版本还不支持, 先看Roaring64Bitmap的实现,然后再来一起改
-```
+* [roaring](src%2Fmain%2Fjava%2Fcom%2Fliveramp%2Fts%2Froaring)目录下的代码是参考go源码实现的32位bitmap.
+* 应为serialCookie的代码还没有写,所以当一个容器满了之后会报错。
 
+
+* [roaring64](src%2Fmain%2Fjava%2Fcom%2Fliveramp%2Fts%2Froaring64) 则是在java32位类库上实现的64位bitmap. 
 * Java的官方版本中, 也不完全兼容Go的版本,
   java在返回集合时用的是数组, 而数组的长度最多是 INT_MAX = 2^31 - 1,
   而go中bitmap的容量可以达到 2^32

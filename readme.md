@@ -1,5 +1,5 @@
 * [roaring](src%2Fmain%2Fjava%2Fcom%2Fliveramp%2Fts%2Froaring)目录下的代码是参考go源码实现的32位bitmap.
-* 应为serialCookie的代码还没有写,所以当一个容器满了之后会报错。
+* 应为serialCookie的代码还没有写,所以当一个容器满了之后会报错。 64的部分和这里的代码完全没有关系, 因为后来发现32是兼容的，所以直接在32上套容器实现64位
 
 
 * [roaring64](src%2Fmain%2Fjava%2Fcom%2Fliveramp%2Fts%2Froaring64) 则是在java32位类库上实现的64位bitmap. 
